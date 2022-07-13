@@ -1,0 +1,12 @@
+# Python cache and misc
+__pycache__/
+
+# Artefacts and build files
+build/
+dist/
+*.egg-info/
+resources_rc.py
+
+# Environment
+.vscode/
+venv/

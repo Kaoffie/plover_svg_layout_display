@@ -1,0 +1,2 @@
+exclude plover_svg_layout_display/*_rc.py
+recursive-include plover_svg_layout_display/resources *
