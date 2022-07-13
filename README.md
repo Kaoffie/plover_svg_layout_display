@@ -7,7 +7,7 @@ Display the last stroke in Plover, but ✨ *fancier* ✨
 
 ![svgld_1](https://user-images.githubusercontent.com/30435273/178503439-d0a2e839-0586-4c92-98bf-ba6df1727a25.png)
 
-SVG Layout Display is based on the original Layout Display plugin by ted; it was designed to be more customizable than the original plugin, allowing the user to use custom shapes, and to define the behavior of these shapes using a custom script. The widget floats above other windows without a window frame, and can be configured to be translucent, which means that users have full control over how the display looks like.
+SVG Layout Display is based on the original [Layout Display Plugin](https://github.com/morinted/plover_layout_display) by [@morinted](https://github.com/morinted); it was designed to be more customizable than the original plugin, allowing the user to use custom shapes, and to define the behavior of these shapes using a custom script. The widget floats above other windows without a window frame, and can be configured to be translucent, which means that users have full control over how the display looks like.
 
 ## Settings
 
