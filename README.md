@@ -27,3 +27,5 @@ The python script should contain a `convert_stroke`, which takes a tuple of stro
 def convert_stroke(stroke: Tuple[str, ...], translation: str) -> List[str]:
     return ...
 ```
+
+Note that the `stroke` parameter is a tuple of individual keys, such as `("K-", "W-", "-U", "-P")`
