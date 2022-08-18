@@ -142,19 +142,6 @@ class SVGLayoutDisplayTool(Tool):
 
         self.show()
 
-    def on_stroke(self, stroke_tup: Tuple[str, ...]) -> None:
-        if self.convert_stroke is not None:
-            prev_translations = self._engine.translator_state.prev()
-            if not prev_translations:
-                output = ""
-            else:
-                output = prev_translations[-1].english
-
-            group_ids = self.convert_stroke(stroke_tup, output)
-            self.svg_widget.update_groups(group_ids)
-
-        self.repaint()
-
     def on_config_changed(self, config: dict) -> None:
         if "system_name" not in config:
             return

@@ -100,6 +100,9 @@ class ConfigUI(QDialog):
             else:
                 field_value = getattr(self.temp_config, config_name)
 
+            if field_value is None and config_name in CONFIG_ITEMS:
+                field_value = CONFIG_ITEMS[config_name]
+
             if field_type == bool:
                 field_data = QCheckBox()
                 field_data.setChecked(field_value)
@@ -123,7 +126,7 @@ class ConfigUI(QDialog):
                 field_data.setRange(5, 10000)
                 field_data.setSingleStep(5)
                 field_data.setSuffix("%")
-                field_data.setValue(field_value)
+                field_data.setValue(field_value or 100)
 
             if field_data is not None:
                 field_data.setMinimumWidth(FIELD_DATA_WIDTH)
