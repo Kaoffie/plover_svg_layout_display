@@ -197,7 +197,7 @@ class SVGLayoutDisplayTool(Tool):
                 py_path = sys_config["system_py"]
                 self.load_py_script(py_path)
                 
-        else:
+        elif sys_config is not None:
             if self.system_name == "English Stenotype":
                 self.svg_widget.load_svg(
                     DEFAULT_SVG, 
