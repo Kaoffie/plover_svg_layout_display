@@ -1,4 +1,4 @@
-from typing import Any, Callable, Tuple
+from typing import Any, Callable, Tuple, Union
 
 from plover import system
 from plover.engine import StenoEngine
@@ -105,7 +105,12 @@ class SVGLayoutDisplayTool(Tool):
         self.settings_action.setShortcut(QKeySequence("Ctrl+S"))
         self.addAction(self.settings_action)
     
-    def on_stroke(self, stroke_tup: Tuple[str, ...]) -> None:
+    def on_stroke(self, stroke: Union[Stroke, Tuple[str, ...]]) -> None:
+        if isinstance(stroke, Stroke):
+            stroke_tup = stroke.keys()
+        else:
+            stroke_tup = stroke
+
         if self.convert_stroke is not None:
             prev_translations = self._engine.translator_state.prev()
             if not prev_translations:

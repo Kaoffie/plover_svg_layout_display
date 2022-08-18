@@ -1,3 +1,5 @@
+from plover.steno import Stroke
+
 from typing import List, Tuple
 
 KEYS = [
