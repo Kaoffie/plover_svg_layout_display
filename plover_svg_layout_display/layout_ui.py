@@ -107,7 +107,7 @@ class SVGLayoutDisplayTool(Tool):
     
     def on_stroke(self, stroke: Union[Stroke, Tuple[str, ...]]) -> None:
         if isinstance(stroke, Stroke):
-            stroke_tup = stroke.keys()
+            stroke_tup = tuple(stroke.steno_keys)
         else:
             stroke_tup = stroke
 
