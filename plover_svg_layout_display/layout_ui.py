@@ -20,6 +20,7 @@ from plover_svg_layout_display.qt_utils import load_qt_text
 
 STYLESHEET = "border:0px; background:transparent;"
 DEFAULT_SVG = ":/svgld/en_layout.svg"
+DEFAULT_SCALE = 100
 DEFAULT_PY = ":/svgld/en_convert.py"
 
 
@@ -197,13 +198,9 @@ class SVGLayoutDisplayTool(Tool):
                 py_path = sys_config["system_py"]
                 self.load_py_script(py_path)
                 
-        elif sys_config is not None:
-            if self.system_name == "English Stenotype":
-                self.svg_widget.load_svg(
-                    DEFAULT_SVG, 
-                    sys_config.get("system_scale", 100)
-                )
-                self.load_py_script(DEFAULT_PY)
+        elif self.system_name == "English Stenotype":
+            self.svg_widget.load_svg(DEFAULT_SVG, DEFAULT_SCALE)
+            self.load_py_script(DEFAULT_PY)
         
         self.on_stroke(tuple())
 
