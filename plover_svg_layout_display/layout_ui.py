@@ -17,7 +17,6 @@ from plover_svg_layout_display.svg_widget import LayoutWidget
 from plover_svg_layout_display.qt_utils import load_qt_text
 
 
-
 STYLESHEET = "border:0px; background:transparent;"
 DEFAULT_SVG = ":/svgld/en_layout.svg"
 DEFAULT_SCALE = 100
@@ -66,16 +65,20 @@ class SVGLayoutDisplayTool(Tool):
         
         # System specific settings
         for field_name in settings.allKeys():
+            sys_name, sys_field = (None, None)
             if "/" in field_name:
                 sys_name, sys_field = field_name.split("/", 1)
-                if sys_field in CONFIG_ITEMS.keys():
-                    if sys_name not in self.config.system_map:
-                        self.config.system_map[sys_name] = dict()
-                    
-                    self.config.system_map[sys_name][sys_field] = settings.value(
-                        field_name,
-                        type=CONFIG_TYPES[sys_field]
-                    )
+            elif "\\" in field_name:
+                sys_name, sys_field = field_name.split("\\", 1)
+
+            if sys_name and sys_field and sys_field in CONFIG_ITEMS.keys():
+                if sys_name not in self.config.system_map:
+                    self.config.system_map[sys_name] = dict()
+                
+                self.config.system_map[sys_name][sys_field] = settings.value(
+                    field_name,
+                    type=CONFIG_TYPES[sys_field]
+                )
 
     def _save_state(self, settings: QSettings) -> None:
         for key, value in self.config.get_values():
@@ -220,8 +223,3 @@ class SVGLayoutDisplayTool(Tool):
             self.layout.setContentsMargins(0, 0, right_margin_px, 0)
             self.setFixedWidth(svg_size.width() + right_margin_px)
             self.setFixedHeight(svg_size.height())
-
-    # def repaint(self) -> None:
-    #     self.repaint_offset = not self.repaint_offset
-    #     self.setFixedWidth(self.width + self.repaint_offset * self.config.force_repaint_px)
-        

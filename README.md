@@ -9,6 +9,8 @@ Display the last stroke in Plover, but ✨ *fancier* ✨
 
 SVG Layout Display is based on the original [Layout Display Plugin](https://github.com/morinted/plover_layout_display) by [@morinted](https://github.com/morinted); it was designed to be more customizable than the original plugin, allowing the user to use custom shapes, and to define the behavior of these shapes using a custom script. The widget floats above other windows without a window frame, and can be configured to be translucent, which means that users have full control over how the display looks like.
 
+If the display window looks like a black rectangle to you, you may need to install a compositor such as [picom](https://github.com/yshui/picom) for transparency to work.
+
 ## Settings
 
 To open the settings page, focus on the display window and press `Ctrl + S` (or `Cmd + S` on mac). System settings are different for each stenographic system and will be recorded independently for each system.
