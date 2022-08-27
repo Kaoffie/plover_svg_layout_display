@@ -12,15 +12,12 @@ SVG_TEMPLATE = (
 
 class SVGParser:
     
-    __slots__ = ["group_svgs", "svg_attribs"]
+    __slots__ = ["group_svgs", "svg_attribs", "svg_raw"]
 
     def load_file(self, path: str) -> List[str]:
-        if not path.strip():
-            return
-
         parser = ET.XMLParser(recover=True)
-        svg_raw = load_qt_text(path)
-        tree = ET.fromstring(svg_raw.encode("utf-8"), parser)
+        self.svg_raw = load_qt_text(path)
+        tree = ET.fromstring(self.svg_raw.encode("utf-8"), parser)
 
         self.group_svgs: Dict[str, str] = {}
         for child in tree:
@@ -31,8 +28,8 @@ class SVGParser:
             if tag == "g" and "id" in child.attrib:
                 self.group_svgs[child.attrib["id"]] = ET.tostring(child).decode()
 
-        if "<svg" in svg_raw:
-            self.svg_attribs = svg_raw.split("<svg", 1)[1].split(">")[0]
+        if "<svg" in self.svg_raw:
+            self.svg_attribs = self.svg_raw.split("<svg", 1)[1].split(">")[0]
 
 
     def get_svg_content(

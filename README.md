@@ -15,6 +15,8 @@ If the display window looks like a black rectangle to you, you may need to insta
 
 To open the settings page, focus on the display window and press `Ctrl + S` (or `Cmd + S` on mac). System settings are different for each stenographic system and will be recorded independently for each system.
 
+To use the default purple layout, use `:/svgld/en_layout.svg` as the layout path and `:/svgld/en_convert.py` as the script path.
+
 ## Customization
 
 ![svgld_2](https://user-images.githubusercontent.com/30435273/178503535-26bcdb13-d74b-40cf-ab64-e6c0c8e6d4dc.png)
